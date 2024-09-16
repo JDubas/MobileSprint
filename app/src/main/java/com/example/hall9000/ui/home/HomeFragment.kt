@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.loginButton.setOnClickListener{
-            findNavController().navigate(R.id.navigation_login)
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_login)
         }
         binding.registerButton.setOnClickListener{
             findNavController().navigate(R.id.navigation_registrar)
