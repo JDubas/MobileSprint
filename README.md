@@ -2,10 +2,16 @@
 ## Overview
 Este é um aplicativo de demonstração que permite visualizar clientes e os produtos que adquiriram, facilitando análises de vendas.
 
+## Observacao
+O Aplicativo conversa com um webapp (https://sprintmobile.azurewebsites.net/) que esta na Azure em um freetier, caso no momento da correcao a api estiver inativa, favor notificar o grupo, para podermos religar a api (ela pode desligar sozinha se ficar 1 semana sem requisicao)
+
 ### Tecnologias Utilizadas
 - Linguagem: Kotlin
 - Framework: Android SDK
 - Build Tool: Gradle
+- API: Python
+- Servidor : Azure
+
 
 ### Mapa de navegacao
 ![image](https://github.com/user-attachments/assets/517a77c7-f389-468a-8cd6-c34d2efc0aca)
