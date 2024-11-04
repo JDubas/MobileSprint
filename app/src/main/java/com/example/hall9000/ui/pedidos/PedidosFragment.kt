@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.hall9000.R
+import com.example.hall9000.databinding.FragmentLoginBinding
 import com.example.hall9000.network.PedidoCompleto
 import com.example.hall9000.network.RetrofitClient
 import retrofit2.Call
@@ -14,6 +17,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class PedidosFragment : Fragment() {
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var nomeTextViews: List<TextView>
     private lateinit var idTextViews: List<TextView>
@@ -24,7 +29,7 @@ class PedidosFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate o layout correto para o fragmento atual
         val view = inflater.inflate(R.layout.fragment_pedidos, container, false)
 
         // Inicializar as TextViews para cada campo
@@ -63,8 +68,14 @@ class PedidosFragment : Fragment() {
         // Chamada à API para preencher os dados
         getPedidos()
 
+        // Acessar o botão buttonteste diretamente pelo view inflado
+        view.findViewById<Button>(R.id.buttonteste).setOnClickListener {
+            findNavController().navigate(R.id.navigation_usuarios)
+        }
+
         return view
     }
+
 
     private fun getPedidos() {
         val call = RetrofitClient.apiService.getPedidos()
@@ -76,10 +87,10 @@ class PedidosFragment : Fragment() {
 
                     // Preencher os TextViews com os dados
                     for (i in pedidos.indices) {
-                        nomeTextViews[i].text = "Nome: ${pedidos[i].Nome}"
-                        idTextViews[i].text = "ID Pedido: ${pedidos[i].PedidoID}"
-                        dataTextViews[i].text = "Data: ${pedidos[i].DataPedido}"
-                        valorTextViews[i].text = "Valor: ${pedidos[i].Valor}"
+                        nomeTextViews[i].text = "Nome: ${pedidos[i].NOME}"
+                        idTextViews[i].text = "ID Pedido: ${pedidos[i].PEDIDOID}"
+                        dataTextViews[i].text = "Data: ${pedidos[i].DATAPEDIDO}"
+                        valorTextViews[i].text = "Valor: ${pedidos[i].VALOR}"
                     }
                 }
             }

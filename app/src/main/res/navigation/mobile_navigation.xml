@@ -45,12 +45,28 @@
         android:id="@+id/navigation_pedidos"
         android:name="com.example.hall9000.ui.pedidos.PedidosFragment"
         android:label="pedidos"
-        tools:layout="@layout/fragment_pedidos" />
+        tools:layout="@layout/fragment_pedidos" >
+        <action
+            android:id="@+id/action_navigation_pedidos_to_navigation_usuarios"
+            app:destination="@id/navigation_usuarios" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_esqueceu"
         android:name="com.example.hall9000.ui.forgotpassword.ForgotPasswordFragment"
         android:label="esquecue a senha"
         tools:layout="@layout/fragment_forgot_password" />
+
+    <fragment
+        android:id="@+id/navigation_usuarios"
+        android:name="com.example.hall9000.ui.usuarios.UserListFragment"
+        android:label="Usuarios"
+        tools:layout="@layout/fragment_user_list" />
+
+    <fragment
+        android:id="@+id/navigation_usuarios_edit"
+        android:name="com.example.hall9000.ui.usuarios.EditUserFragment"
+        android:label="Editar"
+        tools:layout="@layout/fragment_user_list" />
 
 </navigation>

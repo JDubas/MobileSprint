@@ -5,6 +5,11 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="#F5F5F5">
+    <Button
+        android:id="@+id/buttonteste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="usuarios" />
 
     <!-- Container principal para a lista de pedidos -->
     <ScrollView

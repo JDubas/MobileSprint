@@ -58,11 +58,11 @@ class ForgotPasswordFragment : Fragment() {
                     val logins = response.body() ?: return
 
                     // Filtrar o login com base no email fornecido
-                    val login = logins.find { it.Email == email }
+                    val login = logins.find { it.email == email }
 
                     if (login != null) {
                         // Exibir a senha correspondente
-                        senhaTextView.text = "Sua senha é: ${login.PasswordHash}"
+                        senhaTextView.text = "Sua senha é: ${login.senha}"
                     } else {
                         Toast.makeText(requireContext(), "E-mail não encontrado", Toast.LENGTH_SHORT).show()
                     }
